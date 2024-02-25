@@ -1,0 +1,11 @@
+contents:
+  repositories:
+    - https://dl-cdn.alpinelinux.org/alpine/edge/main
+    - '@local /work/packages'
+  packages:
+    - alpine-base
+    - python3
+    - py3-uv@local
+
+entrypoint:
+  command: /bin/sh -l

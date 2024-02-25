@@ -1,0 +1,32 @@
+# Generated from https://pypi.org/project/uv/
+package:
+  name: py3-uv
+  version: 0.1.10
+  epoch: 0
+  description: An extremely fast Python package installer and resolver, written in Rust.
+  copyright:
+    - license: MIT OR Apache-2.0
+  dependencies:
+    runtime:
+      - python3
+environment:
+  contents:
+    repositories:
+      - 'https://dl-cdn.alpinelinux.org/alpine/edge/main'
+      - 'https://dl-cdn.alpinelinux.org/alpine/edge/community'
+    packages:
+      - build-base
+      - busybox
+      - ca-certificates-bundle
+      - alpine-base
+      - cargo
+      - cmake
+      - perl
+pipeline:
+  - uses: fetch
+    with:
+      expected-sha256: cd6b78263679d909eba5d19de4f45cf3ff623366ae9c90883d53704c5966d599
+      uri: https://files.pythonhosted.org/packages/source/u/uv/uv-${{package.version}}.tar.gz
+  - name: Python Build
+    uses: python/build-wheel
+  - uses: strip
